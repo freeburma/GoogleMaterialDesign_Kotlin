@@ -15,20 +15,27 @@ import android.widget.ImageView
  * the Y-axis when the navigation icon in the toolbar is pressed.
  */
 class NavigationIconClickListener @JvmOverloads internal constructor(
-        private val context: Context, private val sheet: View, private val interpolator: Interpolator? = null,
-        private val openIcon: Drawable? = null, private val closeIcon: Drawable? = null) : View.OnClickListener {
+    private val context: Context,
+    private val sheet: View,
+    private val interpolator: Interpolator? = null,
+    private val openIcon: Drawable? = null,
+    private val closeIcon: Drawable? = null
+                                                                    ) : View.OnClickListener
+{
 
     private val animatorSet = AnimatorSet()
     private val height: Int
     private var backdropShown = false
 
-    init {
+    init
+    {
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
         height = displayMetrics.heightPixels
     }
 
-    override fun onClick(view: View) {
+    override fun onClick(view: View)
+    {
         backdropShown = !backdropShown
 
         // Cancel the existing animations
@@ -40,23 +47,34 @@ class NavigationIconClickListener @JvmOverloads internal constructor(
 
         val translateY = height - context.resources.getDimensionPixelSize(R.dimen.shr_product_grid_reveal_height)
 
-        val animator = ObjectAnimator.ofFloat(sheet, "translationY", (if (backdropShown) translateY else 0).toFloat())
+        val animator = ObjectAnimator.ofFloat(
+            sheet,
+            "translationY",
+            (if (backdropShown) translateY else 0).toFloat()
+                                             )
         animator.duration = 500
-        if (interpolator != null) {
+        if (interpolator != null)
+        {
             animator.interpolator = interpolator
         }
         animatorSet.play(animator)
         animator.start()
     }
 
-    private fun updateIcon(view: View) {
-        if (openIcon != null && closeIcon != null) {
-            if (view !is ImageView) {
+    private fun updateIcon(view: View)
+    {
+        if (openIcon != null && closeIcon != null)
+        {
+            if (view !is ImageView)
+            {
                 throw IllegalArgumentException("updateIcon() must be called on an ImageView")
             }
-            if (backdropShown) {
+            if (backdropShown)
+            {
                 view.setImageDrawable(closeIcon)
-            } else {
+            }
+            else
+            {
                 view.setImageDrawable(openIcon)
             }
         }

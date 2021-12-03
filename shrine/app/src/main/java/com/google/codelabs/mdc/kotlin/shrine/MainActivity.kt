@@ -4,13 +4,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-class MainActivity : AppCompatActivity(), NavigationHost {
+class MainActivity : AppCompatActivity(), NavigationHost
+{
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shr_main_activity)
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
+        {
             supportFragmentManager
                     .beginTransaction()
                     .add(R.id.container, LoginFragment())
@@ -24,12 +27,14 @@ class MainActivity : AppCompatActivity(), NavigationHost {
      * @param fragment       Fragment to navigate to.
      * @param addToBackstack Whether or not the current fragment should be added to the backstack.
      */
-    override fun navigateTo(fragment: Fragment, addToBackstack: Boolean) {
+    override fun navigateTo(fragment: Fragment, addToBackstack: Boolean)
+    {
         val transaction = supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, fragment)
 
-        if (addToBackstack) {
+        if (addToBackstack)
+        {
             transaction.addToBackStack(null)
         }
 
