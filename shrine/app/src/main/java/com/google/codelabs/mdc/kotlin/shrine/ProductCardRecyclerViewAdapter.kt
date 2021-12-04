@@ -1,5 +1,6 @@
 package com.google.codelabs.mdc.kotlin.shrine
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,7 @@ class ProductCardRecyclerViewAdapter(private val productList: List<ProductEntry>
 
     override fun getItemCount(): Int
     {
+        Log.i("ProductListSize", "getItemCount: ${productList.size}")
         return productList.size
     }
 }
