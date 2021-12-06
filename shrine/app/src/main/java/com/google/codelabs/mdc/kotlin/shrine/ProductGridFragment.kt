@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.codelabs.mdc.kotlin.shrine.network.ProductEntry
+import com.google.codelabs.mdc.kotlin.shrine.staggeredgridlayout.StaggeredProductCardRecyclerViewAdapter
 import kotlinx.android.synthetic.main.shr_product_grid_fragment.view.*
 
 class ProductGridFragment : Fragment()
@@ -22,16 +23,28 @@ class ProductGridFragment : Fragment()
 
         //// Set up the Recycler VIew
         view.recycler_view.setHasFixedSize(true)
-        view.recycler_view.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+
+        //// Adding the Staggered Layout - Horizontal Scrolling
+        val gridLayoutManager = GridLayoutManager(context, 2, RecyclerView.HORIZONTAL, false)
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup()
+        {
+            override fun getSpanSize(position: Int): Int
+            {
+                return if (position % 3 == 2) 2 else 1
+            }
+        }
+
+//        view.recycler_view.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false) // Vertical layout
+        view.recycler_view.layoutManager = gridLayoutManager; // Staggered Layout
 
         //// Creating adapter
-        val adapter = ProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(resources))
+        val adapter = StaggeredProductCardRecyclerViewAdapter(ProductEntry.initProductEntryList(resources))
 
         view.recycler_view.adapter = adapter
 
         //// Creating Padding for cards
-        val largePadding = resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing)
-        val smallPadding = resources.getDimensionPixelSize(R.dimen.shr_product_grid_spacing_small)
+        val largePadding = resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_large)
+        val smallPadding = resources.getDimensionPixelSize(R.dimen.shr_staggered_product_grid_spacing_small)
 
         view.recycler_view.addItemDecoration(ProductGridItemDecoration(largePadding, smallPadding))
 
