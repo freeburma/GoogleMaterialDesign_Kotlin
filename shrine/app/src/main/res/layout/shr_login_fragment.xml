@@ -23,7 +23,9 @@
             android:layout_marginTop="48dp"
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/shr_logo"
-            android:contentDescription="@string/shr_logo_content_description"  />
+            android:contentDescription="@string/shr_logo_content_description"
+            android:tint="?android:attr/textColorPrimary"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +34,9 @@
             android:layout_marginBottom="132dp"
             android:text="@string/shr_app_name"
             android:textAllCaps="true"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textAppearance="@style/TextAppearance.Shrine.Title"
+            />
 
         <!-- Snippet from "Add text fields" section goes here. -->
         <com.google.android.material.textfield.TextInputLayout
@@ -40,10 +44,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="@string/shr_hint_username"
+            style="@style/Widget.Shrine.TextInputLayout"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="textNoSuggestions"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,6 +61,7 @@
             android:layout_margin="4dp"
             android:hint="@string/shr_hint_password"
             app:errorEnabled="true"
+            style="@style/Widget.Shrine.TextInputLayout"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text"
@@ -75,13 +83,14 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:text="@string/shr_button_next"
+                style="@style/Widget.Shrine.Button"
                 />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cancel_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/Widget.Shrine.Button.TextButton"
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_toStartOf="@+id/next_button"
