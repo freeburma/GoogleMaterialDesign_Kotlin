@@ -33,8 +33,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="132dp"
             android:text="@string/shr_app_name"
-            android:textAllCaps="true"
-            android:textSize="16sp"
             android:textAppearance="@style/TextAppearance.Shrine.Title"
             />
 

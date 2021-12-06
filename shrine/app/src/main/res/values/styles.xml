@@ -37,19 +37,22 @@
     </style>
 
     <!-- Text Field Outline Box Styling -->
-<!--    <style name="Widget.Shrine.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
-<!--        <item name="hintTextAppearance">@style/TextAppearance.Shrine.TextInputLayout.HintText</item>-->
-<!--        <item name="hintTextColor">@color/textColorPrimary</item>-->
-<!--        <item name="android:paddingBottom">8dp</item>-->
-<!--        <item name="boxStrokeColor">@color/textInputOutlineColor</item>-->
-<!--    </style>-->
     <style name="Widget.Shrine.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextAppearance">
-            @style/TextAppearance.Shrine.TextInputLayout.HintText
-        </item>
+        <item name="hintTextAppearance">@style/TextAppearance.Shrine.TextInputLayout.HintText</item>
+        <item name="hintTextColor">@color/textColorPrimary</item>
         <item name="android:paddingBottom">8dp</item>
-        <item name="android:textColorHint">?attr/colorPrimaryDark</item>
+        <item name="boxStrokeColor">@color/textInputOutlineColor</item>
     </style>
+
+
+<!--    <style name="Widget.Shrine.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--    <style name="Widget.Shrine.TextInputLayout.Antumn" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="hintTextAppearance">-->
+<!--            @style/TextAppearance.Shrine.TextInputLayout.HintText-->
+<!--        </item>-->
+<!--        <item name="android:paddingBottom">8dp</item>-->
+<!--        <item name="android:textColorHint">?attr/colorPrimaryDark</item>-->
+<!--    </style>-->
 
 
     <!-- TextInput HintText -->
@@ -70,7 +73,7 @@
 
     <!-- Text Button style -->
     <style name="Widget.Shrine.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?android:attr/colorPrimary</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <!-- Change the typeface of the login screen -->
@@ -81,7 +84,9 @@
     </style>
 
 
-
+    <style name="Widget.Shrine.Backdrop" parent="">
+        <item name="android:background">?attr/colorAccent</item>
+    </style>
 
 
 
